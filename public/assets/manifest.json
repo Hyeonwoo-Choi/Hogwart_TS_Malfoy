@@ -1,0 +1,4 @@
+{
+  "_readme": "실제 일러스트 교체용. 항목 예: {\"id\":\"char.draco.smirk\",\"kind\":\"char\",\"status\":\"final\",\"path\":\"/assets/char/draco_smirk.png\"}. 파일이 없으면 플레이스홀더로 자동 대체됩니다.",
+  "assets": []
+}
