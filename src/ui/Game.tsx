@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { currentNode, lineId, visibleOptions } from '../engine/core'
+import { QA_MODE } from '../engine/env'
 import { store, useGame } from '../engine/store'
 import type { ChoiceNode, LineNode, TypingSpeed } from '../engine/types'
-import { Background, Character } from './Visual'
-import { Backlog, Modal, SaveLoad, SettingsPanel } from './Overlays'
+import { Background, CgFrame, Character } from './Visual'
+import { Backlog, Codex, Modal, SaveLoad, SettingsPanel } from './Overlays'
 import { MapView } from './MapView'
 import { DebugPanel } from './Debug'
 
-type Overlay = null | 'menu' | 'save' | 'load' | 'settings' | 'backlog'
+type Overlay = null | 'menu' | 'save' | 'load' | 'settings' | 'backlog' | 'codex'
 const CPS: Record<TypingSpeed, number> = { slow: 18, normal: 40, fast: 90, instant: Infinity }
 const AUTO_MUL = { slow: 1.6, normal: 1, fast: 0.55 }
+const FX_MS: Record<string, number> = { fade: 700, blackout: 900, flash: 450, shake: 450, zoom: 900, blur: 700, focus: 900, magic: 900, pause: 0 }
 const reduced = () => typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
 function useTypewriter(text: string, speed: TypingSpeed, key: string) {
@@ -29,6 +31,22 @@ function useTypewriter(text: string, speed: TypingSpeed, key: string) {
   return { shown: text.slice(0, n), done: n >= text.length, complete: useCallback(() => setN(text.length), [text]) }
 }
 
+/** 연출 큐: 새 큐(n 증가)에만 반응. 저장 복원 직후에는 재생하지 않는다. 효과가 진행을 막지 않는다. */
+function useCueFx(cue: { effect: string; n: number } | null | undefined) {
+  const last = useRef(cue?.n ?? 0)
+  const [fx, setFx] = useState<string | null>(null)
+  useEffect(() => {
+    if (!cue || cue.n === last.current) return
+    last.current = cue.n
+    const ms = FX_MS[cue.effect] ?? 0
+    if (!ms) return
+    setFx(cue.effect)
+    const id = window.setTimeout(() => setFx(null), ms)
+    return () => window.clearTimeout(id)
+  }, [cue])
+  return fx
+}
+
 export function Game({ debug }: { debug: boolean }) {
   const { state, settings, toast } = useGame()
   const [overlay, setOverlay] = useState<Overlay>(null)
@@ -44,6 +62,7 @@ export function Game({ debug }: { debug: boolean }) {
   const choice = node?.t === 'choice' ? (node as ChoiceNode) : null
   const lid = state ? lineId(state) : ''
   const { shown, done, complete } = useTypewriter(line?.text ?? '', settings.typing, lid)
+  const fx = useCueFx(state?.view.cue)
 
   const doAdvance = useCallback(() => {
     const s = stateRef.current; if (!s) return
@@ -82,7 +101,6 @@ export function Game({ debug }: { debug: boolean }) {
   /* 시간제한 선택지 */
   const timerOn = settings.timer !== 'off'
   const totalMs = choice?.timed ? choice.timed.seconds * 1000 * (settings.timer === 'relaxed' ? 2 : 1) : 0
-  // 타이머는 선택지 노드(lid)별로 초기화된다. 초기값은 항상 전체 시간이며, 0으로 시작해 즉시 만료되는 일이 없다.
   const [timer, setTimer] = useState({ id: '', ms: 0 })
   const remain = timer.id === lid ? timer.ms : totalMs
   useEffect(() => {
@@ -120,12 +138,13 @@ export function Game({ debug }: { debug: boolean }) {
   if (!state) return null
   const stop = (e: React.SyntheticEvent) => e.stopPropagation()
   const sizeClass = `fs${settings.textSize}`
+  const v = state.view
 
   const topbar = (
-    <div className={`topbar${barOpen ? ' open' : ''}`} onClick={(e) => { stop(e); (e.target as HTMLElement).closest('button')?.blur() /* 버튼에 포커스가 남아 Enter가 가로채이지 않게 */ }} data-testid="topbar">
+    <div className={`topbar${barOpen ? ' open' : ''}`} onClick={(e) => { stop(e); (e.target as HTMLElement).closest('button')?.blur() }} data-testid="topbar">
       <button className="btn ghost bar-toggle" aria-label="메뉴 펼치기" onClick={() => setBarOpen((o) => !o)}>⋯</button>
       <div className="bar-items">
-        {state.mode !== 'ROUTINE' && <>
+        {state.mode !== 'ROUTINE' && state.mode !== 'ENDED' && <>
           <button className={`btn ghost${auto ? ' on' : ''}`} onClick={() => line && setAuto((a) => !a)} aria-pressed={auto} data-testid="btn-auto">자동</button>
           <button className={`btn ghost${skip ? ' on' : ''}`} onClick={() => line && setSkip((a) => !a)} aria-pressed={skip} data-testid="btn-skip">스킵</button>
           <button className="btn ghost" onClick={() => setOverlay('backlog')} data-testid="btn-backlog">기록</button>
@@ -142,6 +161,7 @@ export function Game({ debug }: { debug: boolean }) {
         <Modal title="메뉴" onClose={() => setOverlay(null)}>
           <div className="menu-list">
             <button className="btn" onClick={() => setOverlay(null)}>계속하기</button>
+            <button className="btn" onClick={() => setOverlay('codex')} data-testid="menu-codex">마법사의 기록</button>
             <button className="btn" onClick={() => setOverlay('save')} data-testid="menu-save">저장하기</button>
             <button className="btn" onClick={() => setOverlay('load')} data-testid="menu-load">불러오기</button>
             <button className="btn" onClick={() => setOverlay('backlog')}>대화 기록</button>
@@ -150,11 +170,13 @@ export function Game({ debug }: { debug: boolean }) {
           </div>
         </Modal>
       )}
+      {overlay === 'codex' && <Codex state={state} onClose={() => setOverlay(null)} />}
       {overlay === 'save' && <SaveLoad mode="save" canSave onClose={() => setOverlay(null)} />}
       {overlay === 'load' && <SaveLoad mode="load" canSave onClose={() => setOverlay(null)} />}
       {overlay === 'settings' && <SettingsPanel settings={settings} onClose={() => setOverlay(null)} />}
       {overlay === 'backlog' && <Backlog entries={state.backlog} onClose={() => setOverlay(null)} />}
       {toast && <div className="toast" role="status" data-testid="toast">{toast}</div>}
+      {QA_MODE && <div className="qa-badge" aria-hidden>QA</div>}
       {debug && <DebugPanel state={state} />}
     </>
   )
@@ -166,10 +188,12 @@ export function Game({ debug }: { debug: boolean }) {
   if (state.mode === 'ENDED') {
     return (
       <div className={`app-root ${sizeClass}`} data-mode="ENDED">
+        {topbar}
         <div className="end-card" data-testid="end-card">
           <h1>{state.endTitle}</h1>
-          <p>다음 챕터는 제작 중입니다. 지금까지의 선택은 저장해 두면 이어서 반영됩니다.</p>
+          <p>다음 이야기는 아직 쓰이는 중입니다. 지금까지의 선택은 저장해 두면 이어서 반영됩니다.</p>
           <div className="row">
+            <button className="btn" onClick={() => setOverlay('codex')}>마법사의 기록</button>
             <button className="btn" onClick={() => setOverlay('save')}>저장하기</button>
             <button className="btn" onClick={() => store.toTitle()}>타이틀로</button>
           </div>
@@ -181,15 +205,19 @@ export function Game({ debug }: { debug: boolean }) {
 
   return (
     <div className={`app-root ${sizeClass}`} data-mode={state.mode}>
-      <div className="stage" onClick={onStageClick} onWheel={(e) => { if (e.deltaY < 0 && !overlay) setOverlay('backlog') }} data-testid="stage">
-        <Background id={state.view.bg} />
-        <div className="sprite-area"><Character char={state.view.char} expr={state.view.expr} /></div>
+      <div className={`stage light-${v.light}${fx ? ` fx-${fx}` : ''}`} onClick={onStageClick} onWheel={(e) => { if (e.deltaY < 0 && !overlay) setOverlay('backlog') }} data-testid="stage">
+        <Background id={v.bg} />
+        <div className="sprite-area"><Character char={v.char} expr={v.expr} form={v.form} pose={v.pose} gaze={v.gaze} /></div>
+        {v.cg && <CgFrame id={v.cg} />}
+        <div className="fx-layer" aria-hidden />
         {topbar}
         {!hidden && (
-          <div className="dialogue" data-testid="dialogue" data-state={line ? (done ? 'done' : 'typing') : 'choice'}>
+          <div className="dialogue-wrap">
             {line?.who && <div className="nameplate" data-testid="speaker">{line.who}</div>}
-            {line && <p className={`text${line.who ? '' : ' narr'}`} data-testid="text">{shown}</p>}
-            {choice && <p className="text narr" data-testid="text">{choice.prompt}</p>}
+            <div className="dialogue" data-testid="dialogue" data-state={line ? (done ? 'done' : 'typing') : 'choice'}>
+              {line && <p className={`text${line.who ? '' : ' narr'}`} data-testid="text">{shown}</p>}
+              {choice && <p className="text narr" data-testid="text">{choice.prompt}</p>}
+            </div>
             {line && done && <span className="more" aria-hidden>▼</span>}
           </div>
         )}

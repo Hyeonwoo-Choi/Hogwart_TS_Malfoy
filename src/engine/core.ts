@@ -1,7 +1,7 @@
 import { evalCond } from './cond'
-import { ACTIVITIES, DRACO_SCHEDULE, STAT_KO } from '../data/constants'
+import { ACTIVITIES, DRACO_SCHEDULE, activityMessage } from '../data/constants'
 import {
-  SLOTS, type ChoiceNode, type GameState, type Node, type RoutineNode, type Scenario,
+  SLOTS, type ChoiceNode, type Form, type GameState, type Node, type RoutineNode, type Scenario,
 } from './types'
 
 let SCENARIO: Scenario = {}
@@ -11,19 +11,24 @@ export function getScenario() { return SCENARIO }
 export const SCENE_DELTA_CAP = 12
 export const BACKLOG_MAX = 200
 
+/** 초기 능력치(BALANCE_REPORT.md). 6학년이므로 기본 마법·비행은 가능하며, 수치는 '게임 중 성장하는 역량'의 척도다. */
+export const INITIAL_STATS = { int: 10, str: 14, magic: 16, insight: 9, social: 8, will: 13 }
+/** 이 값 이상이면 1회 성장량이 1로 둔화된다. */
+export const STAT_SOFT_CAP = 40
+
 export function newState(startScene: string, seed = 20260901): GameState {
   const npc = (a: number, t: number, w: number) => ({ affinity: a, trust: t, wariness: w })
   return {
-    schemaVersion: 1, mode: 'STORY', scene: startScene, idx: 0,
-    view: { bg: 'black', char: null, expr: null },
+    schemaVersion: 2, mode: 'STORY', scene: startScene, idx: 0,
+    view: { bg: 'black', char: null, expr: null, form: 'base', pose: 'stand', gaze: 'front', light: 'normal', cue: null, cg: null },
     calendar: { date: '09-01', weekday: '일', slot: '-' },
     routine: null,
-    stats: { int: 40, str: 40, magic: 45, insight: 35, social: 35, will: 40 },
+    stats: { ...INITIAL_STATS },
     emotions: {
-      draco: { affinity: 10, trust: 5, respect: 20, attraction: 0, jealousy: 15, wariness: 60, guilt: 0, dependence: 0 },
+      draco: { affinity: 10, trust: 5, respect: 20, attraction: 0, jealousy: 15, wariness: 60, guilt: 0, dependence: 0, acceptance: 50, autonomy: 60, exposure: 0 },
       hermione: npc(40, 50, 0), ginny: npc(40, 40, 0), luna: npc(35, 40, 0), ron: npc(60, 60, 0),
     },
-    flags: {}, knowledge: {}, choices: [], eventLog: [], promises: [], encCount: {}, sceneDelta: {},
+    flags: {}, knowledge: {}, choices: [], eventLog: [], promises: [], encCount: {}, visits: {}, sceneDelta: {},
     backlog: [], rng: seed, chapter: 1,
   }
 }
@@ -40,8 +45,7 @@ export function applyDelta(s: GameState, head: string, key: string, v: number) {
   if (head === 'stat') {
     const st = s.stats as unknown as Record<string, number>
     if (st[key] === undefined) throw new Error(`알 수 없는 능력치: ${key}`)
-    // 70 이상은 성장 둔화(+1)
-    const gain = v > 0 && st[key] >= 70 ? 1 : v
+    const gain = v > 0 && st[key] >= STAT_SOFT_CAP ? Math.min(v, 1) : v
     st[key] = clamp(st[key] + gain)
     return
   }
@@ -54,6 +58,13 @@ export function applyDelta(s: GameState, head: string, key: string, v: number) {
   emo[key] = clamp(emo[key] + allowed)
 }
 
+/** 사건으로 상태가 재정의될 때만 쓴다(예: 변화 직후 자기수용). 장면 변동 상한과 무관. */
+function setValue(s: GameState, head: string, key: string, v: number) {
+  const emo = (s.emotions as unknown as Record<string, Record<string, number>>)[head]
+  if (!emo || emo[key] === undefined) throw new Error(`알 수 없는 감정 변수: ${head}.${key}`)
+  emo[key] = clamp(v)
+}
+
 export function applyEffects(s: GameState, fx: string[] = []) {
   for (const e of fx) {
     let m: RegExpMatchArray | null
@@ -63,6 +74,7 @@ export function applyEffects(s: GameState, fx: string[] = []) {
     else if ((m = e.match(/^log:(.*)$/))) s.eventLog.push(m[1])
     else if ((m = e.match(/^promise:(.*)$/))) s.promises.push(m[1])
     else if ((m = e.match(/^(\w+)\.(\w+)([+-])(\d+)$/))) applyDelta(s, m[1], m[2], (m[3] === '-' ? -1 : 1) * Number(m[4]))
+    else if ((m = e.match(/^(\w+)\.(\w+)=(\d+)$/))) setValue(s, m[1], m[2], Number(m[3]))
     else throw new Error(`알 수 없는 효과: ${e}`)
   }
 }
@@ -86,11 +98,26 @@ export function run(s: GameState): GameState {
       }
       case 'goto': jump(s, node.scene); break
       case 'bg': s.view.bg = node.id; s.idx++; break
-      case 'show': s.view.char = node.char; if (node.expr !== undefined) s.view.expr = node.expr; s.idx++; break
+      case 'show': {
+        if (node.char !== s.view.char) { s.view.pose = 'stand'; s.view.gaze = 'front' }
+        s.view.char = node.char
+        if (node.expr !== undefined) s.view.expr = node.expr
+        if (node.pose) s.view.pose = node.pose
+        if (node.gaze) s.view.gaze = node.gaze
+        s.view.form = node.form ?? defaultForm(s, node.char)
+        s.idx++; break
+      }
+      case 'cue':
+        if (node.effect) s.view.cue = { effect: node.effect, n: (s.view.cue?.n ?? 0) + 1 }
+        if (node.light) s.view.light = node.light
+        s.idx++; break
+      case 'cg': s.view.cg = node.id; s.idx++; break
       case 'date': s.calendar = { date: node.date, weekday: node.weekday, slot: '-' }; s.idx++; break
       case 'line':
         if (node.when && !evalCond(s, node.when)) { s.idx++; break }
         if (node.expr) s.view.expr = node.expr // 표정은 작가가 명시한 순간에만 변경
+        if (node.pose) s.view.pose = node.pose
+        if (node.gaze) s.view.gaze = node.gaze
         return s
       case 'choice': return s
       case 'routine': startRoutine(s, node); return s
@@ -99,6 +126,12 @@ export function run(s: GameState): GameState {
     }
   }
   throw new Error('run: 무한 루프 의심')
+}
+
+/** 외형 기본값: 변화 이후 드레이코는 공개 장면에서 환영(기존 외형)으로 보인다. 진짜 모습은 장면이 form:'true'로 명시할 때만. */
+export function defaultForm(s: GameState, char: string | null): Form {
+  if (char !== 'draco') return 'base'
+  return s.flags.FLAG_DRACO_CHANGED ? 'illusion' : 'base'
 }
 
 export function startScene(s: GameState, scene: string): GameState {
@@ -162,9 +195,6 @@ function returnFromEvent(s: GameState) {
   if (s.routine!.pendingDone) finishRoutine(s)
 }
 
-/** 받침 유무에 따른 목적격 조사 */
-const eulReul = (w: string) => ((w.charCodeAt(w.length - 1) - 0xac00) % 28 ? '을' : '를')
-
 export function dracoLocation(weekday: string, slotIdx: number) { return DRACO_SCHEDULE[weekday]?.[slotIdx] }
 
 export function pickActivity(s: GameState, loc: string, actId: string): GameState {
@@ -175,12 +205,13 @@ export function pickActivity(s: GameState, loc: string, actId: string): GameStat
   if (!act) throw new Error(`알 수 없는 활동: ${actId}`)
   const n = clone(s)
   const r = n.routine!
-  const before = { ...n.stats }
   for (const [k, v] of Object.entries(act.gains)) applyDelta(n, 'stat', k, v as number)
-  const gained = Object.entries(act.gains)
-    .map(([k, v]) => ({ k, d: (n.stats as unknown as Record<string, number>)[k] - (before as unknown as Record<string, number>)[k], v }))
   const dracoHere = dracoLocation(n.calendar.weekday, r.slotIdx) === loc
-  r.message = `${act.name}${eulReul(act.name)} 마쳤다. (${gained.map((g) => `${STAT_KO[g.k] ?? g.k}+${g.d}`).join(', ')})`
+  n.visits = n.visits ?? {}
+  const visit = (n.visits[loc] ?? 0) + 1
+  n.visits[loc] = visit
+  // 결과는 서술로만 알린다: 능력치 이름·수치·성장 종류는 표시하지 않는다(BALANCE_REPORT 비공개 정책)
+  r.message = activityMessage(loc, act.id, visit, r.slotIdx)
   r.slotIdx++
   if (r.slotIdx >= SLOTS.length) {
     r.slotIdx = 0; r.dayIdx++

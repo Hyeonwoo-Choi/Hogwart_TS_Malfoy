@@ -1,6 +1,7 @@
+// [보류] 구 설정(선천적 여성) 기반 챕터 4 테스트. 새 설정 재작업(다음 회차) 전까지 실행하지 않는다 — docs/DEV_PROGRESS.md 참고.
 import { describe, expect, it } from 'vitest'
 import { advance, choose, currentNode, newState, pickActivity, run, setScenario, visibleOptions } from '../engine/core'
-import { CH4_SCENARIO, SCENARIO, START_SCENE } from '../data/scenario'
+import { LEGACY_CH4_SCENARIO as CH4_SCENARIO, SCENARIO, START_SCENE } from '../data/scenario'
 import type { ChoiceNode, GameState } from '../engine/types'
 
 setScenario(SCENARIO)
@@ -23,7 +24,7 @@ function play(plan: Record<string, string>, seed = 1, stopAt?: (s: GameState) =>
 const atK08 = (plan: Record<string, string>, seed = 1) => play(plan, seed, (s) => { const n = currentNode(s); return n?.t === 'choice' && n.id === 'K-08' }).s
 const after = (plan: Record<string, string>, k: string, seed = 1) => { let s = choose(atK08(plan, seed), k); for (let i = 0; i < 80 && s.scene !== 'ch4_end'; i++) { const n = currentNode(s); if (n?.t === 'line') s = advance(s); else break } return s }
 
-describe('챕터 4 구조·연결', () => {
+describe.skip('챕터 4 구조·연결', () => {
   it('챕터 3에서 챕터 4로 이어지고 챕터 4 종료로 끝난다', () => {
     expect(play({}, 1, (s) => s.scene === 'ch4_open').s.scene).toBe('ch4_open')
     const e = play({}); expect(e.s.mode).toBe('ENDED'); expect(e.s.endTitle).toContain('챕터 4')
@@ -44,7 +45,7 @@ describe('챕터 4 구조·연결', () => {
   })
 })
 
-describe('K-08 분기·지식 상태', () => {
+describe.skip('K-08 분기·지식 상태', () => {
   it('선택지는 항상 4개이고 아직 알지 못하는 사실(필요의 방·캐비닛)을 문구에 쓰지 않는다', () => {
     const s = atK08({}); const n = currentNode(s) as ChoiceNode
     expect(visibleOptions(s, n, true).map((o) => o.key)).toEqual(['A', 'B', 'C', 'D'])
@@ -82,7 +83,7 @@ describe('K-08 분기·지식 상태', () => {
   })
 })
 
-describe('챕터 4 이월 반영', () => {
+describe.skip('챕터 4 이월 반영', () => {
   const tail = (plan: Record<string, string>, k: string) => { let s = choose(atK08(plan), k); const out: string[] = []; for (let i = 0; i < 400 && s.mode !== 'ENDED'; i++) { const n = currentNode(s); if (n?.t === 'line') { out.push(n.text); s = advance(s) } else if (n?.t === 'choice') break; else if (s.mode === 'ROUTINE') break; else break } return out.join('|') }
   it('후속 대사가 선택 방식별로 다르다 (헤르미온느 한 달 기한 / 루나 침묵 / 쥐 대사)', () => {
     expect(tail({}, 'B')).toContain('한 달이야'); expect(tail({}, 'B')).not.toContain('아무한테도 안 했어')

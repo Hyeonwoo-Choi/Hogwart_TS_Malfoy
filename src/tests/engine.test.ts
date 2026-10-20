@@ -28,7 +28,7 @@ describe('조건식', () => {
   it('비교·논리·플래그·지식을 평가한다', () => {
     const s = fresh()
     s.flags.FLAG_X = true; s.knowledge.KN_Y = true
-    expect(evalCond(s, 'draco.trust>=5 && stat.int==40')).toBe(true)
+    expect(evalCond(s, 'draco.trust>=5 && stat.int==10')).toBe(true)
     expect(evalCond(s, 'FLAG_X && KN_Y')).toBe(true)
     expect(evalCond(s, '!FLAG_X || draco.trust>50')).toBe(false)
     expect(evalCond(s, '(draco.trust<10 || FLAG_Z) && !FLAG_Z')).toBe(true)
@@ -166,7 +166,7 @@ describe('일과·지도 잠금', () => {
     let s = toRoutine()
     expect(canOpenMap(s)).toBe(true); expect(s.calendar.weekday).toBe('수')
     s = pickActivity(s, 'library', 'study') // 수요일 오후1: 드레이코는 4층 교실 → 만남 없음
-    expect(s.mode).toBe('ROUTINE'); expect(s.routine!.slotIdx).toBe(1); expect(s.stats.int).toBe(42)
+    expect(s.mode).toBe('ROUTINE'); expect(s.routine!.slotIdx).toBe(1); expect(s.stats.int).toBe(12)
     expect(DRACO_SCHEDULE['수'][1]).toBe('courtyard')
     s = pickActivity(s, 'courtyard', 'talk') // 수요일 오후2: 안뜰 → 만남
     expect(s.mode).toBe('EVENT'); expect(canOpenMap(s)).toBe(false)
@@ -210,7 +210,8 @@ describe('저장·불러오기', () => {
     expect(parseImport(exportSave(s, new Set(['a']))).state).toEqual(s)
     expect(() => parseImport('not json')).toThrow(/JSON/)
     expect(() => validateSave({ schemaVersion: 9, state: s })).toThrow(/버전/)
-    expect(() => validateSave({ schemaVersion: 1, state: { mode: 'STORY' } })).toThrow(/항목/)
+    expect(() => validateSave({ schemaVersion: 2, state: { mode: 'STORY' } })).toThrow(/항목/)
+    expect(() => validateSave({ schemaVersion: 1, state: {} })).toThrow(/이전 버전/)
   })
 })
 

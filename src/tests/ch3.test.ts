@@ -1,7 +1,8 @@
+// [보류] 구 설정(선천적 여성) 기반 챕터 3 테스트. 새 설정 재작업(다음 회차) 전까지 실행하지 않는다 — docs/DEV_PROGRESS.md 참고.
 import { describe, expect, it } from 'vitest'
 import { advance, choose, currentNode, newState, pickActivity, run, setScenario, visibleOptions } from '../engine/core'
 import { evalCond } from '../engine/cond'
-import { CH3_SCENARIO, SCENARIO, START_SCENE } from '../data/scenario'
+import { LEGACY_CH3_SCENARIO as CH3_SCENARIO, SCENARIO, START_SCENE } from '../data/scenario'
 import type { ChoiceNode, GameState } from '../engine/types'
 
 setScenario(SCENARIO)
@@ -25,7 +26,7 @@ function play(plan: Record<string, string>, seed = 1, stopAt?: (s: GameState) =>
 const letterTail = (k: string, plan: Record<string, string>) => { const l = play({ ...plan, 'K-07': k }, 5).lines; return l.slice(l.findIndex((x) => x.startsWith('토요일 저녁. 징계가 시작된 지 이레째')), l.findIndex((x) => x.startsWith('일요일 오후. 해리는 도서관'))).join('|') }
 const trustAtLetter = (plan: Record<string, string>) => play(plan, 5, (s) => s.scene === 'ch3_letter').s.emotions.draco.trust
 
-describe('챕터 3 구조·연결', () => {
+describe.skip('챕터 3 구조·연결', () => {
   it('챕터 3 모든 장면이 도달 가능하고 만남·조연 이벤트는 end로 끝난다', () => {
     const seen = new Set<string>(); const st = [START_SCENE]
     while (st.length) {
@@ -54,7 +55,7 @@ describe('챕터 3 구조·연결', () => {
   })
 })
 
-describe('챕터 3 이월 반영 (DE-03/06/12)', () => {
+describe.skip('챕터 3 이월 반영 (DE-03/06/12)', () => {
   const open = (plan: Record<string, string>) => play(plan, 3, (s) => s.scene === 'ch3_routine').lines.join('|')
   it('DE-06: 반칙 여부에 따라 징계 사유 대사가 다르다', () => {
     expect(open({ 'K-06': 'B' })).toContain('반칙 때문이라더군')
@@ -71,7 +72,7 @@ describe('챕터 3 이월 반영 (DE-03/06/12)', () => {
   })
 })
 
-describe('K-07·EH-01·복선', () => {
+describe.skip('K-07·EH-01·복선', () => {
   it('EH-01(실제 선택 경로): 사적 도움(K-03D)+비신고면 신뢰 9(≥7), 그 외는 5 또는 1(<7)', () => {
     expect(trustAtLetter({ 'K-03': 'D', 'K-04': 'B' })).toBe(9)
     expect(trustAtLetter({ 'K-03': 'D', 'K-04': 'C' })).toBe(9)
@@ -122,7 +123,7 @@ describe('K-07·EH-01·복선', () => {
     expect(n).toBe(144)
   })
 })
-describe('일과 안내 문구', () => {
+describe.skip('일과 안내 문구', () => {
   it('활동 완료 메시지는 받침에 맞는 조사와 한글 능력치 이름을 쓴다', () => {
     const s0 = play({}, 7, (s) => s.mode === 'ROUTINE').s
     const msg = (act: string) => pickActivity(s0, 'library', act).routine!.message!

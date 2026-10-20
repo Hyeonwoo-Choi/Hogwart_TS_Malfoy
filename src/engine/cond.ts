@@ -33,7 +33,7 @@ function tokenize(src: string): Tok[] {
 }
 
 export function resolveVar(s: GameState, id: string): number {
-  if (/^(FLAG|KN)_/.test(id)) return s.flags[id] || s.knowledge[id] ? 1 : 0
+  if (/^(FLAG|KN|OB)_/.test(id)) return s.flags[id] || s.knowledge[id] ? 1 : 0
   const [head, key] = id.split('.')
   if (head === 'stat') {
     const v = (s.stats as unknown as Record<string, number>)[key]

@@ -1,12 +1,15 @@
 import { CHAR_KO, EXPR_KO } from './constants'
+import { CG_LIST } from './cg'
 
 /**
  * 에셋 매니페스트. 실제 일러스트로 교체하는 방법:
  *  1) 이미지를 public/assets/char/ 또는 public/assets/bg/ 에 넣는다.
  *  2) public/assets/manifest.json 에 항목을 추가/수정한다 (status:"final", path:"/assets/char/draco_smirk.png").
- *  재빌드 없이 새로고침만으로 반영되며, 파일이 없으면 자동으로 플레이스홀더로 되돌아간다.
+ *  재빌드 없이 새로고침만으로 반영되며, 파일이 없으면 자동으로 실루엣/프레임으로 되돌아간다.
+ *  주의: 이미지 경로는 DOM(img src)에 드러나므로 파일명은 내용을 암시하지 않는 중립 이름을 쓴다(VISUAL_ASSET_PLAN.md).
+ *  label/note는 개발용이며 플레이어 화면에 출력하지 않는다.
  */
-export interface AssetEntry { id: string; kind: 'bg' | 'char'; status: 'placeholder' | 'final'; path?: string; label?: string; note?: string }
+export interface AssetEntry { id: string; kind: 'bg' | 'char' | 'cg'; status: 'placeholder' | 'final'; path?: string; label?: string; note?: string }
 
 export const BG_IDS = ['black', 'train', 'hall', 'potions', 'pitch', 'library', 'courtyard', 'lake', 'corridor7_night', 'common', 'trophy'] as const
 export const BG_KO: Record<string, string> = {
@@ -18,7 +21,9 @@ export const CHAR_IDS = Object.keys(CHAR_KO)
 
 export const DEFAULT_MANIFEST: AssetEntry[] = [
   ...BG_IDS.map((id): AssetEntry => ({ id: `bg.${id}`, kind: 'bg', status: 'placeholder', label: BG_KO[id] })),
-  ...EXPR_IDS.map((e): AssetEntry => ({ id: `char.draco.${e}`, kind: 'char', status: 'placeholder', label: `드레이코 · ${EXPR_KO[e]}` })),
+  ...EXPR_IDS.map((e): AssetEntry => ({ id: `char.draco.${e}`, kind: 'char', status: 'placeholder', label: `드레이코(기본/환영) · ${EXPR_KO[e]}` })),
+  ...EXPR_IDS.map((e): AssetEntry => ({ id: `char.draco_t.${e}`, kind: 'char', status: 'placeholder', label: `드레이코(변화 후, 명시 장면 전용) · ${EXPR_KO[e]}` })),
+  ...CG_LIST.map((c): AssetEntry => ({ id: `cg.${c.id}`, kind: 'cg', status: 'placeholder', label: c.title })),
   ...['hermione', 'ron', 'ginny', 'luna', 'slughorn', 'pansy', 'hooch', 'snape', 'mcgonagall', 'filch'].map((c): AssetEntry => ({ id: `char.${c}.calm`, kind: 'char', status: 'placeholder', label: `${CHAR_KO[c]}` })),
 ]
 
@@ -42,9 +47,13 @@ export function assetCounts() {
   return { final: all.filter((a) => a.status === 'final').length, placeholder: all.filter((a) => a.status === 'placeholder').length }
 }
 
-/** 캐릭터 에셋 ID 결정: 표정 에셋이 없으면 calm → 플레이스홀더 순으로 대체 */
-export function charAssetId(char: string, expr: string | null): string {
-  const want = `char.${char}.${expr ?? 'calm'}`
+/**
+ * 캐릭터 에셋 ID 결정. 환영(illusion)은 기존 외형과 같은 이미지를 쓴다(공개 장면의 기본 외형).
+ * 변화 후 실제 외형(form:'true')은 장면이 명시할 때만 draco_t 세트를 쓴다. 표정 에셋이 없으면 calm으로 대체.
+ */
+export function charAssetId(char: string, expr: string | null, form: 'base' | 'illusion' | 'true' = 'base'): string {
+  const base = char === 'draco' && form === 'true' ? 'draco_t' : char
+  const want = `char.${base}.${expr ?? 'calm'}`
   if (manifest.has(want)) return want
-  return `char.${char}.calm`
+  return `char.${base}.calm`
 }

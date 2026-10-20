@@ -136,7 +136,8 @@ describe('지도 잠금과 저장', () => {
     for (let i = 0; i < 4 && mode() === 'STORY'; i++) clickStage()
     expect(mode()).toBe('ROUTINE'); expect(screen.getByTestId('map')).toBeTruthy()
     act(() => { fireEvent.click(screen.getByTestId('loc-courtyard')) }); act(() => { fireEvent.click(screen.getByTestId('act-rest')) })
-    expect(screen.getByTestId('map-msg').textContent).toContain('휴식')
+    const msg = screen.getByTestId('map-msg').textContent ?? ''
+    expect(msg.length).toBeGreaterThan(5); expect(msg).not.toMatch(/[0-9]|의지력|지성|체력|사교성|통찰력|마법 실력/) // 보상 비공개: 수치·능력치 이름 없음
   })
   it('저장 → 새로고침 상황(스토어 초기화) → 불러오기 후 같은 상태로 복원된다', () => {
     start(); untilChoice(); press('1')
