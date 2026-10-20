@@ -1,3 +1,6 @@
 node_modules
 dist
 *.log
+
+# 사용자가 배치한 원격 저장소 클론(이 프로젝트 이력에 포함하지 않음, 내용 보존)
+hogwarts-remote/
