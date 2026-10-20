@@ -1,5 +1,7 @@
 # BRANCH_MAP — 선택·분기·엔딩
 
+> 2026-10-20 새 설정 반영. 능력치 판정값은 새 척도(초기 ~10) 기준. 챕터 3 이후의 판정값(K-09 마법≥50, K-11C 통찰≥45, K-16C 통찰≥55 등)은 해당 회차에서 BALANCE_REPORT.md 기준으로 재조정한다.
+
 표기: 감정은 `draco.trust`처럼 소문자 변수(GAME_BIBLE 4장). 플래그는 1장 레지스트리에 **정의된 것만** 사용한다.
 분기 폭발 방지 원칙: 챕터 종료 시 분기를 *상태(플래그·수치)*로 병합한다. 챕터당 고유 변형 장면은 최대 2개, 나머지는 공유 장면 + 조건 대사.
 
@@ -9,6 +11,9 @@
 | 플래그 | 의미 | 획득 |
 |---|---|---|
 | `KN_TENSE` | 드레이코가 평소와 다르게 긴장해 있음을 안다 | K-01 |
+| `KN_WALL_DOOR` | 7층 맨벽에 문이 있었다(안은 보지 못함) | Ch2 사고 |
+| `KN_TRANSFORMATION` | 사고로 드레이코의 몸이 변했다(해리와 드레이코만 앎) | Ch2 사고 |
+| `KN_ILLUSION` | 드레이코가 환영으로 예전 모습을 덧씌운다 | Ch2 사고 후 |
 | `KN_OVERHEARD` | "일정을 앞당겨야 한다"는 말을 엿들었다 | K-01 |
 | `KN_ROOM` | 드레이코가 필요의 방을 비밀리에 쓴다 | K-08 |
 | `KN_CABINET` | 고장난 사라지는 캐비닛을 보았다 | K-08 |
@@ -20,6 +25,16 @@
 | `KN_DUMBLEDORE_PLAN` | 덤블도어가 보호책을 준비 중임을 안다 | Ch12 (`FLAG_TOLD_DUMBLEDORE` ∨ `FLAG_CONFIDED_HERMIONE`) |
 | `KN_SNAPE_VOW` | 스네이프의 맹세를 안다 | Ch13 (R4 경로) |
 
+### 1.1b 관찰(OB_) — 도감·대사 조건용, 해리가 본 사실만
+| 플래그 | 의미 | 획득 |
+|---|---|---|
+| `OB_SLEEVE` / `OB_TREMOR` / `OB_WINDOW` / `OB_SAWDUST` | F-01 / F-02 / F-03 / F-04 목격 | Ch1 |
+| `OB_SCORCH` | 4층 책상 그을음(F-14) | Ch1 수 오후1 만남 |
+| `OB_PANSY_NIGHTS` | 판시 "밤마다 사라져"(F-05) | Ch2 도입 |
+| `OB_SLUG_AVOID` | 슬러그혼의 루시우스 회피(F-06) | Ch2 만찬 |
+| `OB_BLACKSPARK` | 4층 폭발의 검보랏빛 불꽃(F-15) | Ch2 9/25 |
+| `OB_LETTER` | 검은 봉투(F-08 예고) | Ch3 |
+
 ### 1.2 선택·사건 기록
 | 플래그 | 의미 | 설정 |
 |---|---|---|
@@ -28,6 +43,18 @@
 | `FLAG_MOCKED_FALL` | 드레이코의 추락을 비웃으며 지켜봤다 (PHASE 3 추가, 참조: Ch1 만남·판시·지니 대사, Ch2 이후 DE 확장) | K-03B |
 | `FLAG_CALLED_TEACHER` | 추락 때 교사를 불렀다 (PHASE 3 추가, 참조: Ch1 만남 대사) | K-03C |
 | `FLAG_PUBLIC_RESCUE` | 공개적으로 도왔다 | K-03 |
+| `FLAG_ASKED_DIRECTLY` | 만찬에서 말포이에게 직접 말을 건넸다/물었다 | K-05 C(두 변형 공통) |
+| `FLAG_HELD_BACK` | 첫 경기에서 일부러 늦췄다(동정으로 읽힘) | K-06 C |
+| `FLAG_WON_FIRST_MATCH` | 첫 경기에서 해리가 스니치를 잡았다 | K-06 A 승리 / B |
+| `FLAG_DRACO_CHANGED` | 9/28 사고로 변화가 일어났다(시스템) | Ch2 사고 |
+| `FLAG_PUSHED_INFIRMARY` | 사고 직후 의무실을 고집했다(자율성 침해) | S-01 A |
+| `FLAG_SECRET_PROMISED` | 아무에게도 말하지 않겠다고 약속했다(`promise:SECRET_KEPT`) | S-01 B |
+| `FLAG_DEMANDED_TRUTH` | 사고 직후 무엇을 하고 있었는지 추궁했다 | S-01 C |
+| `FLAG_HARRY_APOLOGIZED` | 자기 주문 탓이라고 사과했다(드레이코는 받지 않음) | S-01 D |
+| `FLAG_DAWN_VIGIL` | 새벽까지 곁에 있었다(SS-04) | Ch2 새벽 |
+| `FLAG_CLOAK_LENT` | 투명 망토를 드레이코에게 맡겼다 | Ch2 새벽 |
+| `FLAG_COVERED_ILLUSION` | 아침 식탁에서 소란으로 환영의 흔들림을 가렸다 | S-02 A |
+| `FLAG_PANSY_NOTICED` | 판시가 환영의 흔들림을 눈치챘다 | S-02 B |
 | `FLAG_PRIVATE_HELP` | 사적으로 도왔다 | K-03 |
 | `FLAG_REPORTED_NIGHT` | 야간 일을 교사에게 알렸다 | K-04 |
 | `FLAG_MUTUAL_SECRET` | 서로의 야간 규칙 위반을 덮었다 | K-04 |
@@ -76,12 +103,14 @@
 | ID | Ch | 상황 | 선택지 | 즉시 | 설정 |
 |---|---|---|---|---|---|
 | P-01 | 1 | (PHASE 3 추가) 프롤로그: 지난 여름에 한 일. 능력치 +4~5 준비 선택(능력치 게이트 선택지 K-01B 통찰≥40, K-02B 지성≥45를 챕터 1 안에서 도달 가능하게 함) | A 공부(지성+5) / B 관찰(통찰+5) / C 비행(체력+4, 마법+2) / D 사람들(사교+4, 의지+2) | 없음(해리 능력치만) | 없음 |
-| K-01 | 1 | 열차에서 드레이코가 판시·크레이브와 긴장된 대화 | A 투명 망토로 엿듣는다 / B 문을 열고 정면으로 시비 / C 지나친다 | A: 드레이코는 모름(통찰 판정 실패 시 들킴, 경계+) / B: 존경+, 경계+ / C: 변화 없음 | A: `KN_OVERHEARD` `KN_TENSE`, 들키면 `FLAG_CAUGHT_EAVESDROP` / B: insight≥40이면 `KN_TENSE` |
-| K-02 | 1 | 포션 수업, 드레이코의 "보호받은 영웅" 도발 | A 농담으로 받아친다 / B 논리로 반박(지성≥45) / C 침묵하고 작업 / D 그녀의 실수를 조용히 알려준다 | A: 흥미(끌림 소량) / B: 존경+ / C: "재미없군", 흥미- / D: 자존심 훼손, 경계+ | D: `FLAG_OFFERED_POTION_HELP` |
+| K-01 | 1 | 열차에서 말포이가 판시·크레이브와 긴장된 대화 | A 투명 망토로 엿듣는다 / B 문을 열고 시비 / C 지나친다 | A: 모름(통찰<14면 40% 확률로 들킴, 경계+6) / B: 존경+2, 경계+3 / C: 변화 없음 | A: `KN_OVERHEARD` `KN_TENSE`, 들키면 `FLAG_CAUGHT_EAVESDROP` / B: 통찰≥12이면 `KN_TENSE` |
+| K-02 | 1 | 마법약 수업, "보호받은 영웅" 도발 | A 농담 / B 논리로 반박(지성≥13) / C 침묵 / D 실수를 조용히 알려준다 | A: 흥미(끌림+1, 존경+1) / B: 존경+4 / C: 호감−1 / D: 경계+4 | D: `FLAG_OFFERED_POTION_HELP` |
 | K-03 | 1 | 경기장 연습 시간 충돌 중 드레이코의 비행 사고 | A 즉시 달려가 공개적으로 돕는다 / B 비웃으며 지켜본다 / C 교사를 부른다 / D 사람들이 빠질 때까지 기다렸다 말을 건다 | A: 의존성+, 경계+(자존심) / B: 존경 유지(도발), 호감- / C: 중립 / D: 신뢰+, 호감+ | A: `FLAG_PUBLIC_RESCUE` / D: `FLAG_PRIVATE_HELP` |
 | K-04 | 1 | 토요일 밤 7층 복도에서 드레이코와 마주침 | A 교사에게 알린다 / B 서로 못 본 걸로 하자고 한다 / C "무슨 일이지?" 직접 추궁 / D 말없이 미행 | A: 분노, 신뢰- / B: 경계+, 빚 의식(의존성 소량) / C: 비꼼 응수, 신뢰 변화 없음 / D: 들키지 않으면 단서 확보 | `FLAG_REPORTED_NIGHT` / `FLAG_MUTUAL_SECRET` / `FLAG_CONFRONTED_NIGHT` / `FLAG_FOLLOWED_NIGHT` |
-| K-05 | 2 | 슬러그 클럽 만찬. 소문이 돌 조건(`FLAG_PUBLIC_RESCUE`/`FLAG_CONFRONTED_NIGHT`/`FLAG_FOLLOWED_NIGHT` 중 하나)이면 소문 대응, 아니면 자리 배정 갈등 | A 부정한다 / B 무시한다 / C 드레이코에게 직접 확인 | A: 사교성 판정, 실패 시 소문 확산 / B: 시간이 지나며 확산 / C: 드레이코 비꼼, 존경+ | A 실패·B: `FLAG_RUMOR_ACTIVE` |
-| K-06 | 2 | 첫 경기. 드레이코가 먼저 스니치를 발견 | A 정정당당하게 추격 / B 반칙성 방해 / C 일부러 늦춘다 | A: 존경+ / B: 승부 영향, 존경-(드레이코는 비겁하다고 판단) / C: 드레이코 분노(동정) | B: `FLAG_FOUL_PLAY` |
+| K-05 | 2 | 슬러그 클럽 만찬. 소문 조건(`FLAG_PUBLIC_RESCUE`/`FLAG_CONFRONTED_NIGHT`/`FLAG_FOLLOWED_NIGHT`)이면 소문 대응, 아니면 자리 배정 | 소문: A 부정(사교≥14 확정, ≥11이면 50%, 그 외 20%) / B 웃어넘김 / C 직접 확인 · 자리: A 바꿔 달라 / B 앉는다 / C 먼저 말을 건넨다 | C: 존경+2 | A 실패·B: `FLAG_RUMOR_ACTIVE` / C: `FLAG_ASKED_DIRECTLY`(→SS-02) |
+| K-06 | 2 | 첫 경기. 말포이가 먼저 스니치를 발견 | A 정정당당 추격(체력≥20 확정, 그 외 40%) / B 빗자루 붙잡기 / C 일부러 늦춤 | A: 존경+3(→SS-03) / B: 존경−4, 경계+4 / C: 존경−2, 경계+2 | B: `FLAG_FOUL_PLAY` / C: `FLAG_HELD_BACK` / 승리: `FLAG_WON_FIRST_MATCH` |
+| S-01 | 2 | 사고 직후, 떨리는 지팡이 끝 | A 의무실 고집 / B 침묵 약속 / C 추궁 / D 사과 | 반응 대사 뒤 적용 — A: 자율성−10, 경계+8, 신뢰−3(환영 장면 없이 도주) / B: 신뢰+4, 의존+2, 자율성+3 / C: 경계+8, 신뢰−3, 자율성−5 / D: 존경+2, 자율성+2 | 각 `FLAG_PUSHED_INFIRMARY` / `FLAG_SECRET_PROMISED`+`promise:SECRET_KEPT` / `FLAG_DEMANDED_TRUTH` / `FLAG_HARRY_APOLOGIZED` |
+| S-02 | 2 | 다음 날 아침, 환영이 흔들리고 판시가 고개를 돌린다 | A 소란으로 시선 돌리기 / B 아무것도 하지 않기 | A: 의존+3, 자율성−4 / B: 노출도+15, 자율성+4 | A: `FLAG_COVERED_ILLUSION` / B: `FLAG_PANSY_NOTICED` |
 | K-07 | 3 | 공동 징계 중 드레이코가 편지를 훔쳐보듯 본다 | A 모른 척 B 슬쩍 도움(시간 확보) C 비꼰다 | **EH-01** 참조 | B: `FLAG_DETENTION_KINDNESS` |
 | K-08 | 4 | 7층 문 앞. 방의 존재를 확인하는 방법 | A 혼자 잠복한다 / B 헤르미온느와 상의 / C 루나와 상의 / D 지금은 내버려둔다 | A: 직접 확인, 위험 판정 / B: 규칙적 접근, 신고 압박 / C: 편견 없는 관찰(드레이코가 울던 모습 증언) / D: 확인 지연 | A: `KN_ROOM` `KN_CABINET` / B: `KN_ROOM` `FLAG_CONFIDED_HERMIONE` `FLAG_HERMIONE_DEMAND` / C: `KN_ROOM` `KN_FAMILY_REASON` `FLAG_CONFIDED_LUNA` / D: 없음(Ch6에서 확인 가능) |
 | K-09 | 5 | 케이티가 목걸이에 접촉. **시간제한**(긴급) | A 즉시 마법으로 접촉을 차단(마법 실력≥50이면 성공) / B 교사를 부르러 뛴다 / (시간 초과) 망설임 | A: 피해 최소화 / B: 피해 중간 / 초과: 피해 큼, 해리 죄책감 | 기록만(eventLog). draco.guilt는 피해에 비례 |
@@ -122,11 +151,19 @@
 | DE-16 | `FLAG_CONFRONTED_PRIVATE` | 6 | 드레이코가 "이번엔 교사에게 말하지 않았군"을 언급하며 표식 확인 장면의 분노가 줄어듦 |
 | DE-17 | `FLAG_TEST_READ` | 10 | 드레이코가 "시험인 줄 알고도 왔더군"이라며 요청 방식이 달라짐 |
 
+## 3b. 특별 장면·서비스씬 (상세 연출은 ROMANCE_SCENE_GUIDE.md, 메타데이터는 src/data/romance.ts)
+| ID | Ch | 조건(시나리오 실제 if) | 대체 경로 |
+|---|---|---|---|
+| SS-01 물병 | 1 | K-03 D | 공개 도움/조롱/교사 호출 |
+| SS-02 공연이 끝난 뒤 | 2 | `FLAG_ASKED_DIRECTLY \|\| draco.respect>=26` | ch2_mask_cold |
+| SS-03 라이벌의 인정 | 2 | `!FLAG_FOUL_PLAY && !FLAG_HELD_BACK` | 경멸 반응 |
+| SS-04 새벽 | 2 | `(FLAG_SECRET_PROMISED \|\| FLAG_HARRY_APOLOGIZED) && draco.trust>=6` | ch2_alone / ch2_flee |
+
 ## 4. 감정 훅 (EH) — QA 테스트 케이스
 
 | ID | 장면 | 조건 A | 조건 B |
 |---|---|---|---|
-| EH-01 | Ch3 편지 | trust<7: 편지를 감추며 해리를 공격 | trust≥7: 감추되 "…보지 마." 한마디로 침묵 허용 (임계값 근거: Ch3 시점 신뢰는 1/5/9뿐이며 9는 FLAG_PRIVATE_HELP(K-03D)이고 ¬FLAG_REPORTED_NIGHT일 때만 도달. 초기 신뢰 5 + 사적 도움 4 = 9) |
+| EH-01 | Ch3 편지 (※ 새 설정에서 재보정 필요: 챕터 2 신뢰 변동 추가) | trust<7: 편지를 감추며 해리를 공격 | trust≥7: 감추되 "…보지 마." 한마디로 침묵 허용 (임계값 근거: Ch3 시점 신뢰는 1/5/9뿐이며 9는 FLAG_PRIVATE_HELP(K-03D)이고 ¬FLAG_REPORTED_NIGHT일 때만 도달. 초기 신뢰 5 + 사적 도움 4 = 9) |
 | EH-02 | Ch5 병동 앞 | guilt≥40: 병동 앞을 서성이다 해리를 보고 얼어붙음 | guilt<40: 냉담한 비웃음 |
 | EH-03 | Ch6 표식 확인 직후 | respect≥50 ∧ ¬`FLAG_FORCED_MARK_CHECK`: "확인했으면 됐지, 이제 만족해?" | 그 외: 분노 폭발, 마법 충돌 |
 | EH-04 | Ch8 편지 | trust≥40: 해리 앞에서 읽다 무너짐 | trust<40: 편지를 태우고 접근 차단 |

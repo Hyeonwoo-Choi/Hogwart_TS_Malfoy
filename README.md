@@ -13,9 +13,11 @@ npm run dev          # 개발 서버 → http://localhost:5173
 ```bash
 npm run build        # 타입 검사 + 프로덕션 빌드 → dist/
 npm run preview      # 빌드 결과 확인 → http://localhost:4173
-npm test             # 단위·통합 테스트 (vitest, 54개)
+npm test             # 단위·통합 테스트 (vitest, 89개 + 보류 28개)
 ```
 브라우저 E2E(선택): `e2e/e2e.py` — Python Playwright 필요. `npm run dev` 실행 후 `python3 e2e/e2e.py`.
+
+QA 격리 모드: http://localhost:5173/?qa (저장 키 hfd-qa: 분리, 실제 저장에 영향 없음)
 
 ## 조작
 클릭/Enter/Space 진행 · 숫자키 선택 · Esc 메뉴 · Ctrl(누르는 동안) 읽은 대사 스킵 · 마우스 휠 위 대화 기록 · H 대사창 숨기기 · A 자동 진행
