@@ -6,9 +6,11 @@ import type { ChoiceNode, LineNode, TypingSpeed } from '../engine/types'
 import { Background, CgFrame, Character } from './Visual'
 import { Backlog, Codex, Modal, SaveLoad, SettingsPanel } from './Overlays'
 import { MapView } from './MapView'
+import { AccountPanel } from './Account'
+import { cloud } from '../cloud/cloudStore'
 import { DebugPanel } from './Debug'
 
-type Overlay = null | 'menu' | 'save' | 'load' | 'settings' | 'backlog' | 'codex'
+type Overlay = null | 'menu' | 'save' | 'load' | 'settings' | 'backlog' | 'codex' | 'account'
 const CPS: Record<TypingSpeed, number> = { slow: 18, normal: 40, fast: 90, instant: Infinity }
 const AUTO_MUL = { slow: 1.6, normal: 1, fast: 0.55 }
 const FX_MS: Record<string, number> = { fade: 700, blackout: 900, flash: 450, shake: 450, zoom: 900, blur: 700, focus: 900, magic: 900, pause: 0 }
@@ -165,11 +167,13 @@ export function Game({ debug }: { debug: boolean }) {
             <button className="btn" onClick={() => setOverlay('save')} data-testid="menu-save">저장하기</button>
             <button className="btn" onClick={() => setOverlay('load')} data-testid="menu-load">불러오기</button>
             <button className="btn" onClick={() => setOverlay('backlog')}>대화 기록</button>
+            {cloud.enabled && <button className="btn" onClick={() => setOverlay('account')} data-testid="menu-account">계정 · 클라우드 저장</button>}
             <button className="btn" onClick={() => setOverlay('settings')}>설정</button>
             <button className="btn" onClick={() => { setOverlay(null); store.toTitle() }} data-testid="menu-title">타이틀로</button>
           </div>
         </Modal>
       )}
+      {overlay === 'account' && <AccountPanel onClose={() => setOverlay(null)} />}
       {overlay === 'codex' && <Codex state={state} onClose={() => setOverlay(null)} />}
       {overlay === 'save' && <SaveLoad mode="save" canSave onClose={() => setOverlay(null)} />}
       {overlay === 'load' && <SaveLoad mode="load" canSave onClose={() => setOverlay(null)} />}

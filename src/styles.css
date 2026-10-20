@@ -165,3 +165,8 @@ button { font: inherit; color: inherit; touch-action: manipulation; }
   .fx-shake .sprite-area, .fx-shake .bg, .fx-zoom .bg, .fx-zoom .sprite-area, .fx-blur .bg, .fx-focus .bg, .fx-magic .fx-layer, .fx-flash .fx-layer { animation: none !important; }
   .sprite { transition: none; }
 }
+
+/* ---------- 클라우드 저장 ---------- */
+.cloud-head { margin: 0 0 10px; font-size: .88rem; } .cloud-row { margin-top: 6px; font-size: .82rem; }
+.cloud-status { color: var(--gold); } .cloud-row .row { margin-top: 4px; } .cloud-row .btn { min-height: 34px; padding: 6px 10px; font-size: .82rem; white-space: normal; text-align: left; }
+.slots li { align-items: flex-start; }

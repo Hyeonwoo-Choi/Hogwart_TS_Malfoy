@@ -18,6 +18,8 @@ class GameStore {
   readVersion = 0
   toast: string | null = null
   cgSeen: string[] = loadCgRecord().ids
+  /** 로컬 저장 직후 호출되는 훅(클라우드 푸시용). 실패해도 로컬 저장에는 영향이 없다. */
+  afterSave: ((slot: string) => void) | null = null
   private snap: Snapshot = this.make()
   private subs = new Set<() => void>()
 
@@ -51,10 +53,11 @@ class GameStore {
     this.set(next)
     if (before === 'ROUTINE' && next.mode !== 'ROUTINE') this.autosave()
   }
-  autosave() { if (this.state) saveToSlot(AUTO_KEY, this.state, this.read) }
+  autosave() { if (this.state) { saveToSlot(AUTO_KEY, this.state, this.read); try { this.afterSave?.(AUTO_KEY) } catch { /* 클라우드 오류는 게임을 멈추지 않는다 */ } } }
   save(key: string) {
     if (!this.state) return false
     const ok = saveToSlot(key, this.state, this.read)
+    try { this.afterSave?.(key) } catch { /* noop */ }
     this.say(ok ? '저장했습니다.' : '브라우저 저장소를 쓸 수 없어 임시로 저장했습니다. 파일로 내보내 주세요.')
     return ok
   }

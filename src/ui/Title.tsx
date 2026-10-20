@@ -3,12 +3,15 @@ import { store, useGame } from '../engine/store'
 import { loadFromSlot, AUTO_KEY } from '../engine/save'
 import { devAttrs, QA_MODE } from '../engine/env'
 import { Gallery, SaveLoad, SettingsPanel } from './Overlays'
+import { AccountPanel } from './Account'
+import { cloud, useCloud } from '../cloud/cloudStore'
 import { assetCounts } from '../data/assets'
 
 /** 타이틀. 확장 설계는 docs/TITLE_SCREEN_PLAN.md. 스토리의 비밀(변화·환영)을 암시하는 요소를 두지 않는다. */
 export function Title() {
   const { settings, toast, cgSeen } = useGame()
-  const [ov, setOv] = useState<null | 'load' | 'settings' | 'gallery'>(null)
+  const [ov, setOv] = useState<null | 'load' | 'settings' | 'gallery' | 'account'>(null)
+  const cs = useCloud()
   const hasAuto = !!loadFromSlot(AUTO_KEY)
   const c = assetCounts()
   return (
@@ -22,6 +25,7 @@ export function Title() {
           <button className="btn" disabled={!hasAuto} onClick={() => store.load(AUTO_KEY)} data-testid="continue">이어하기</button>
           <button className="btn" onClick={() => setOv('load')} data-testid="open-load">불러오기</button>
           <button className="btn" onClick={() => setOv('gallery')} data-testid="open-gallery">장면 갤러리</button>
+          {cloud.enabled && <button className="btn" onClick={() => setOv('account')} data-testid="open-account-title">{cs.status === 'signed_in' ? '계정 · ' + (cs.user?.email ?? '') : '로그인 / 클라우드 저장'}</button>}
           <button className="btn" onClick={() => setOv('settings')}>설정</button>
         </nav>
         <p className="legal">이 작품은 비공식 팬 창작물이며 원작 저작권자와 무관합니다. 등장인물은 모두 성인입니다.</p>
@@ -29,6 +33,7 @@ export function Title() {
       </div>
       {ov === 'load' && <SaveLoad mode="load" canSave={false} onClose={() => setOv(null)} />}
       {ov === 'settings' && <SettingsPanel settings={settings} onClose={() => setOv(null)} />}
+      {ov === 'account' && <AccountPanel onClose={() => setOv(null)} />}
       {ov === 'gallery' && <Gallery seen={cgSeen} onClose={() => setOv(null)} />}
       {toast && <div className="toast" role="status">{toast}</div>}
       {QA_MODE && <div className="qa-badge" aria-hidden>QA</div>}

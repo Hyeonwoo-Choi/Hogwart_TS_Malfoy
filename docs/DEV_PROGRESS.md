@@ -46,3 +46,10 @@
 - 백업: 로컬 Git + 로컬 zip만. **영구 외부 백업 아님**(PC 복원 시 유실 가능).
 
 ## 다음 회차(2차: 챕터 3~4) 전 검토 사항 → STORY_OUTLINE 8장, BALANCE_REPORT 5장
+
+## 클라우드 저장(Supabase) — 브랜치 `cloud-supabase` (iter1-ch1-2-redesign `b3088c1`에서 분기, 로컬 전용·미푸시)
+- 구현: `src/cloud/*`(config·types·versions·sync·cloudStore·supabaseApi·endings), `src/ui/Account.tsx`, `Overlays.tsx`(SaveLoad 클라우드 행·2단계 확인), `Title/Game`(계정 진입), `store.afterSave` 훅, `save.ts` raw 접근자. 자세한 모델·설정: `docs/CLOUD_SETUP.md`.
+- 기존 DB(`game_saves`, `ending_unlocks`, RLS, revision 트리거, UNIQUE(user_id, slot)) **변경 없이** 재사용. 읽기 전용으로만 스키마·정책을 확인했다(추가 SQL은 선택 사항: `supabase/proposed/0001_optional_insert_hardening.sql`, 미실행).
+- 미설정·`?qa` 모드: 클라우드 완전 비활성(UI·네트워크 없음), 로컬 게임 정상. service_role/`sb_secret_` 키 감지 시 비활성.
+- 검증: tsc · vitest 129 통과/28 보류(구 챕터 3~4) · build 성공(supabase-js는 별도 청크로 지연 로드). 브라우저(`?qa`, 환경변수 없음): 로컬 저장·메뉴 정상, 계정 UI 없음, Supabase 요청 0건.
+- **실서버 미검증**: 실제 Auth(가입·이메일 확인·세션)·PostgREST·RLS 동작은 테스트되지 않았다. 자동 테스트는 (a) 실제 DB 규칙을 모사한 FakeServer, (b) SupabaseCloud가 만드는 쿼리 모양을 검사하는 스텁이다. 수동 확인 목록: `docs/CLOUD_SETUP.md` 7장.

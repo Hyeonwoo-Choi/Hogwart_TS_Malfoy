@@ -16,6 +16,11 @@ function put(k: string, v: string): boolean {
 }
 function del(k: string) { try { window.localStorage.removeItem(P + k) } catch { /* noop */ } memory.delete(k) }
 
+/** 저장소 원시 접근(같은 접두사 hfd:/hfd-qa: 사용). 클라우드 동기화 메타·엔딩 기록용. */
+export const rawGet = get
+export const rawPut = put
+export const rawDel = del
+
 export interface SaveFile {
   schemaVersion: 2; savedAt: string; label: string; state: GameState; read: string[]
 }
