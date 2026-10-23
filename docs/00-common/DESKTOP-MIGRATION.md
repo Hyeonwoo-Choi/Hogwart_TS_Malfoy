@@ -5,9 +5,9 @@ Node.js 24.22.0, npm 11.19.1을 현재 검증 기준으로 고정한다(.nvmrc).
 Windows/Linux/macOS 경로에 사용자 PC 절대경로를 하드코딩하지 않는다.
 
 ## Clone 및 설치
-아래 REBUILD_BRANCH는 업로드 승인 후 확정한 브랜치로 바꾼다. 현재 원격에 준비 결과가 있다는 뜻이 아니다.
+승인된 기준은 rebuild-foundation / 54dbeff99874094396d97c32927964c20d6eb882다. 기존 Clone이 있으면 중복 Clone하지 않고 브랜치·HEAD·미커밋 상태부터 확인한다.
 ```sh
-git clone --branch REBUILD_BRANCH https://github.com/Hyeonwoo-Choi/Hogwart_TS_Malfoy.git Hogwarts
+git clone --branch rebuild-foundation https://github.com/Hyeonwoo-Choi/Hogwart_TS_Malfoy.git Hogwarts
 cd Hogwarts
 node --version
 npm --version
@@ -45,13 +45,13 @@ Supabase 실서버 요청·스키마 변경을 검증 절차에 포함하지 않
 
 ## 세 AI Worktree
 개인 데스크톱에서 이전 검증 후 공통 기준 커밋과 통합 브랜치를 승인한다.
-다음 BASE_SHA를 승인된 커밋으로 바꾸고 비어 있는 경로/미사용 브랜치에서 실행한다.
+개인 데스크톱에서 설치·테스트·빌드·두 뷰포트 검증을 통과한 뒤에만 다음 명령을 실행한다. 충돌 경로·브랜치는 삭제하지 말고 조사한다.
 ```sh
 git worktree list
 git branch -a
-git worktree add -b feat/claude-foundation ../Hogwarts-Claude BASE_SHA
-git worktree add -b codex/qa-foundation ../Hogwarts-Codex BASE_SHA
-git worktree add -b feat/antigravity-ui ../Hogwarts-Antigravity BASE_SHA
+git worktree add -b feat/claude-foundation ../Hogwarts-Claude 54dbeff99874094396d97c32927964c20d6eb882
+git worktree add -b codex/qa-foundation ../Hogwarts-Codex 54dbeff99874094396d97c32927964c20d6eb882
+git worktree add -b feat/antigravity-ui ../Hogwarts-Antigravity 54dbeff99874094396d97c32927964c20d6eb882
 ```
 각 작업 폴더에서 npm ci. .git 관리 자료나 기존 PC Worktree 폴더를 복사하지 않는다.
 [운영 절차](WORKTREE-WORKFLOW.md)의 계약 승인·PR 검증·사용자 병합 승인을 따른다.
