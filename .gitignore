@@ -1,0 +1,32 @@
+node_modules
+dist
+*.log
+
+# 사용자가 배치한 원격 저장소 클론(이 프로젝트 이력에 포함하지 않음, 내용 보존)
+hogwarts-remote/
+
+# 환경변수(키 포함 가능) — 커밋 금지
+.env
+.env.*
+!.env.example
+
+# Reproducible build/test outputs and local-only material
+.vite/
+.vitest/
+coverage/
+.cache/
+*.tsbuildinfo
+playwright-report/
+test-results/
+backups/
+.local/
+.worktrees/
+# Unregistered temporary image experiments (preserved locally)
+scripts_tmp_*
+public/assets/bg/tmp_*
+public/assets/char/tmp_*
+# Historical QA outputs contain local paths; preserve locally
+qa-phase2/results/
+docs/antigravity-qa/evidence/
+docs/antigravity-qa/CH1_COMPREHENSIVE_PLAYTEST.md
+docs/codex-phase2/QA_RESULTS.md

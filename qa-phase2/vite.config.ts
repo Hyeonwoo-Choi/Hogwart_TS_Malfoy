@@ -1,0 +1,1 @@
+import {defineConfig} from 'vitest/config';export default defineConfig({cacheDir:'qa-phase2/results/.vite',envDir:'qa-phase2/noenv',test:{environment:'node',include:['qa-phase2/**/*.test.ts'],fileParallelism:false,cache:false,pool:'forks',poolOptions:{forks:{singleFork:true}}}})

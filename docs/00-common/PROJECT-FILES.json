@@ -1,0 +1,1802 @@
+[
+  {
+    "path": ".env.example",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": ".env.local",
+    "category": "LOCAL ONLY",
+    "reason": "실제 환경설정"
+  },
+  {
+    "path": ".gitignore",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": ".nvmrc",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "AGENTS.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "CLAUDE.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/ARCHITECTURE.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/DATA-CONTRACTS.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/DECISIONS.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/DESKTOP-MIGRATION.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/MASTER-DESIGN.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/PROJECT-INVENTORY.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/WORKTREE-WORKFLOW.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/00-common/WORLD-STATE.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/01-claude/ENGINE-DESIGN.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/01-claude/IMPLEMENTATION-PLAN.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/01-claude/RESPONSIBILITIES.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/02-codex/QA-STRATEGY.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/02-codex/RESPONSIBILITIES.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/02-codex/REVIEW-CHECKLIST.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/02-codex/UI-RUNBOOK.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/03-antigravity/RESPONSIBILITIES.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/03-antigravity/SCREEN-SPECS.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/03-antigravity/UI-UX-DESIGN.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/11_2026-10-23_HANDOVER.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/12_DOCS_INVENTORY_2026-10-23.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/antigravity-qa/CH1_COMPREHENSIVE_PLAYTEST.md",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/CH1_PLAYER_EXPERIENCE_REVIEW.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/antigravity-qa/CH1_RELATIONSHIP_UX_RETEST.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/playtest_results.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psA_ch2_research_Q01_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psA_H03_options_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psB_ch2_pitch_Q02_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psB_H04_options_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psC_C101_options_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psC_ch2_sly_Q04_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psC_K04_optionE_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psC_pansy_journal_leaked_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psD_ch2_secret_Q03_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psE_ch2_unstable_Q15_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psE_X01_crack_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/psE_X02_followup_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg01_draco_journal_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg01_hermione_journal_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg02_before_H08B_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg02_board_after_H08B_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg04_timeskip_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg04_timeskip_375.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/reg04_timeskip_armed_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/p1_01_H03_options_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/p1_01_meta_line_exposed_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/p1_03_board_after_H08B_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/p1_03_ev1_ap_pansy_pitch_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/p1_03_H08_options_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase3_H04_options_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase3_K04_optionE_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ch3_ev3_a_appeal_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ch4_ev4_h_ledger_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ch4_ev4_p_deal_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ch5_ev5_g_team_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ch5_ev5_h_chain_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ch5_ev5_r_rumor_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_ginny_ch2_pitch_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_her_ch2_research_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_luna_ch2_secret_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/phase4_pansy_ch2_sly_1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/retest_results.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/ui_map_375x812.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/ui_notebook_portrait_1366x768.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/ui_notebook_portrait_1920x1080.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/ui_notebook_portrait_375x812.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/relationship-retest/ui_timeskip_375x812.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/ui_notebook_1366x768.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/ui_notebook_1920x1080.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/antigravity-qa/evidence/ui_notebook_375x812.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/architecture-audit/ARCHITECTURE_COMPARISON.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/architecture-audit/CINEMATIC_WRITING_AUDIT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/architecture-audit/IMPLEMENTATION_BACKLOG.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/architecture-audit/REQUIREMENT_AUDIT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/architecture-audit/STORY_MERGE_PROPOSAL.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/BALANCE_REPORT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/BRANCH_MAP.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/BRANCH_MAP_ENDINGS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/BRANCH_MAP_V2.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CH1_NARRATIVE_AUDIT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CH2_DETAILED_STORY.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CH3_CONNECTION_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CH3_DETAILED_STORY.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CHAPTER_BRANCH_AXES.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CHAPTER_BRANCH_MATRIX.md",
+    "category": "REVIEW",
+    "reason": "동명·동일 내용 사본, 정본 선정·삭제 보류"
+  },
+  {
+    "path": "docs/CHARACTER_LONG_ARCS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/CLOUD_SETUP.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/CHAPTER_SCENE_CONTRACTS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/CHARACTER_RELATIONSHIP_BLUEPRINT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/contracts/CH01.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/contracts/CH02.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/contracts/CH03.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/contracts/CH04.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/LONG_TERM_CAUSALITY.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/NARRATIVE_STYLE_GUIDE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/QA_RESULTS.md",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "docs/codex-phase2/scene-contracts.json",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-phase2/STORY_IMPLEMENTATION_BLUEPRINT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CG_IMPLEMENTATION_REQUIREMENTS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CH2_DETAILED_STORY.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CH2_PATH_A.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CH2_PATH_B.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CH2_PATH_C.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CH2_PATH_D.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CH2_PATH_E.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CHAPTER_BRANCH_MATRIX.md",
+    "category": "REVIEW",
+    "reason": "동명·동일 내용 사본, 정본 선정·삭제 보류"
+  },
+  {
+    "path": "docs/codex-story-architecture/CHAPTER_CG_PLACEMENT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CHARACTER_LONG_ARCS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/CHARACTER_VISUAL_DIRECTION.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/DOCUMENT_AUDIT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/DOCUMENT_CLEANUP_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/DOCUMENT_STRUCTURE_PROPOSAL.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/EVENT_CG_MASTER_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/STORY_FLAG_REQUIREMENTS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/codex-story-architecture/STORY_MASTER_BRANCHES.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/DATA_STRUCTURE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/DEV_PROGRESS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/FREE_ROAM_SYSTEM.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/GAME_BIBLE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/MAP_UI_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/NARRATIVE_STYLE_GUIDE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/RANDOM_EVENTS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/reports/REBUILD-PHASE2.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/reports/REPORT_TEMPLATE.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/ROMANCE_SCENE_GUIDE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/STORY_IMPLEMENTATION_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/STORY_MASTER_BRANCHES.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/STORY_MATRIX_INTEGRATION_PROPOSAL.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/STORY_OUTLINE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/tasks/TASK_TEMPLATE.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "docs/TITLE_SCREEN_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/UI_SPEC.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_ACADEMIC_CALENDAR.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_BRANCHING_STORY.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_CH1_CH2_REWRITE.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_CH1_REVIEW.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_CH1_SCENES.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_CHAPTER_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_COMPAT.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_DESIGN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_DRACO_ILLUSION.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_DYNAMIC_EVENTS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_HEROINES.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_JOURNAL.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_MULTI_HEROINE_STORY.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_NOTEBOOK.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_PERCEPTION.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_RELATIONSHIP_ROUTES.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_ROADMAP_IMPL.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_ROMANCE_DIRECTION.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/V2_UI_TRANSITIONS.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "docs/VISUAL_ASSET_PLAN.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "e2e/e2e.py",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "index.html",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "package-lock.json",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "package.json",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "public/assets/bg/tmp_common.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/char/tmp_draco_calm.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/char/tmp_ginny_calm.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/char/tmp_hermione_calm.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/char/tmp_luna_calm.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/char/tmp_pansy_calm.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/char/tmp_ron_calm.png",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "public/assets/manifest.json",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "public/assets/README.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "qa-phase2/.gitignore",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/blueprint.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/checks.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/cli.mjs",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/connection.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/contracts.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/phase2.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/probe-suite.mjs",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/profiles.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/README.md",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/report.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/results/choices-1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/choices-1920.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/choices-375.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/cli-check/a.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/cli-check/b.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/cli-check/replay.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/conflict.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/disclosure.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/latest-natural.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/latest-night.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/natural-1-4.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/prototype-probe.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/relationship-probes.json",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/ui-1366.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/ui-1920.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/results/ui-375.png",
+    "category": "LOCAL ONLY",
+    "reason": "개인 PC별 QA 결과"
+  },
+  {
+    "path": "qa-phase2/runtime.mjs",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/scope.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/simulate.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/storyqa.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/tsconfig.json",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/verify-cli.mjs",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "qa-phase2/vite.config.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "README.md",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "scripts/check-presentation-boundary.mjs",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "scripts/export-project.mjs",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "scripts/presentation-qa.mjs",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "scripts_tmp_tmpimg.cjs",
+    "category": "REMOVE CANDIDATE",
+    "reason": "미등록 임시 생성물, 삭제 승인 전 보존"
+  },
+  {
+    "path": "src/App.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/cloudStore.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/config.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/endings.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/supabaseApi.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/sync.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/types.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/cloud/versions.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/components/ImageLayers.tsx",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/components/SceneRenderer.tsx",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/components/useTypewriter.ts",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/data/activityScenes.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/assets.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/calendar.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/cases.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/cg.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch1free.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch1Records.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch2a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch2b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch2c.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch2Records.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch3a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch3b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch4a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch4b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch4Records.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch5a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch5b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch5Records.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch6a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch6b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch7a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch7b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch8a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/ch8b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/codex.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/constants.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/dsl.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/glossary.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/incidents.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/journal.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/mapLayout.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/places.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/randomEvents.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/romance.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/scenario.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/scenario_sys.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1a.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1b.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1c.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1d.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1e.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1r.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c1x.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c2e.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c2p.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c2r.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c2x.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c3p.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c3x.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c4h.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c4x.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/data/v2c5x.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/cond.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/core.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/env.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/presence.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/reactions.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/save.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/store.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/engine/types.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/main.tsx",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/screens/MockSceneScreen.tsx",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/shared/presentation.ts",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/styles/renderer.css",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "src/styles.css",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ability.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/blind.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/board.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1attach.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1context.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1p1.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1redesign.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1stability.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch1v2.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch2.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch2paths.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch2sim.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch3.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch4.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch4branch.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch5.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch5branch.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch6.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch7.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ch8.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/cloud.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/cloudui.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/engine.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/events.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/fade.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/fakeCloud.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/free2.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/freeroam.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/glossary3.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/helpers.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/intro.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/journal.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/multi.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/noenv/README.txt",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/notebook.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/notebook2.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/qa7.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/reach.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/relation.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/sim.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/staging.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/systems.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/timeskip.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ui.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/ux2.test.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/tests/v2c3proto.test.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Account.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Board.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Debug.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/effects.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Game.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Intro.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Journal.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/MapView.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Notebook.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Overlays.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Terms.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/TimeSkip.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Title.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/useScreenFade.ts",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "src/ui/Visual.tsx",
+    "category": "ARCHIVE",
+    "reason": "기존 구현 또는 참고 문서, 원위치 보존"
+  },
+  {
+    "path": "supabase/proposed/0001_optional_insert_hardening.sql",
+    "category": "REVIEW",
+    "reason": "과거 제안 SQL, 실행 금지"
+  },
+  {
+    "path": "tests/noenv/README.txt",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "tests/renderer.test.tsx",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "tsconfig.json",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "vite.config.ts",
+    "category": "KEEP",
+    "reason": "신규 UI·협업·재현 환경"
+  },
+  {
+    "path": "node_modules/",
+    "category": "REMOVE CANDIDATE",
+    "reason": "의존성 재설치 대상"
+  },
+  {
+    "path": "dist/",
+    "category": "REMOVE CANDIDATE",
+    "reason": "빌드 재생성 대상"
+  },
+  {
+    "path": "hogwarts-remote/",
+    "category": "LOCAL ONLY",
+    "reason": "사용자 별도 클론"
+  },
+  {
+    "path": ".git/",
+    "category": "LOCAL ONLY",
+    "reason": "Clone이 생성하는 관리 자료"
+  },
+  {
+    "path": "docs/00-common/PROJECT-FILES.json",
+    "category": "KEEP",
+    "reason": "파일 분류·이전 검증 목록"
+  },
+  {
+    "path": "docs/reports/DESKTOP-MIGRATION-REPORT.md",
+    "category": "KEEP",
+    "reason": "파일 분류·이전 검증 목록"
+  },
+  {
+    "path": "docs/reports/UPLOAD-FILES.json",
+    "category": "KEEP",
+    "reason": "파일 분류·이전 검증 목록"
+  }
+]

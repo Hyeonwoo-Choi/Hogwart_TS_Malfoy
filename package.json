@@ -1,0 +1,38 @@
+{
+  "name": "hogwarts-fractured-destiny",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/presentation-qa.mjs serve",
+    "build": "tsc --noEmit && node scripts/presentation-qa.mjs build",
+    "preview": "node scripts/presentation-qa.mjs preview",
+    "test": "node scripts/presentation-qa.mjs test",
+    "typecheck": "tsc --noEmit",
+    "ui:test": "node scripts/presentation-qa.mjs test",
+    "ui:build": "node scripts/presentation-qa.mjs build",
+    "ui:dev": "node scripts/presentation-qa.mjs serve",
+    "ui:preview": "node scripts/presentation-qa.mjs preview",
+    "ui:check": "node scripts/check-presentation-boundary.mjs",
+    "migration:export": "node scripts/export-project.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=24.22.0 <25"
+  }
+}
